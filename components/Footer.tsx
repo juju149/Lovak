@@ -1,6 +1,11 @@
 import React from 'react';
+import { Settings } from 'lucide-react';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenConfig: () => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onOpenConfig }) => {
   return (
     <footer className="w-full py-12 border-t border-white/5 bg-black mt-20">
       <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
@@ -8,7 +13,14 @@ const Footer: React.FC = () => {
           &copy; 2025 R.A.F RECORDS. TOUS DROITS RÉSERVÉS.
         </div>
         
-        <div className="flex gap-8">
+        <div className="flex gap-8 items-center">
+            <button 
+                onClick={onOpenConfig}
+                className="text-gray-600 hover:text-green-500 transition-colors flex items-center gap-1 text-xs font-mono uppercase"
+                title="Configuration Spotify"
+            >
+                <Settings size={14} /> API
+            </button>
             <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm uppercase font-bold tracking-widest">
                 Mentions Légales
             </a>
